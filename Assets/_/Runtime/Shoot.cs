@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 { 
     private float _speedShoot = 50;
     [SerializeField] private GameObject _prefabShoot;
+    [SerializeField] private MaangeGame _game;
     private GameObject bulette;
 
     public void Shooter(InputAction.CallbackContext context)
@@ -19,7 +20,8 @@ public class Shoot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        _game.CheckAndAddHighScore(_game.score);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void KillThen(Vector2 direction)
