@@ -1,12 +1,10 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Shoot : MonoBehaviour
 { 
-    private float _speedShoot = 100;
+    private float _speedShoot = 50;
     [SerializeField] private GameObject _prefabShoot;
     private GameObject bulette;
 

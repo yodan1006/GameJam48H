@@ -509,8 +509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 5600519010990664434, guid: 6258a46efa62c884fb6c994b84cff4d8, type: 3}
-  _timeToSpawn: 5
   _textMesh: {fileID: 1399773636}
+  _spawnTimer: 0.5
   score: 0
 --- !u!4 &1603555562
 Transform:

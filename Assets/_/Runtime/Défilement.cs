@@ -61,6 +61,7 @@ public class Défilement : MonoBehaviour
         Destroy(gameObject);
         if (_etat == etat.Civil)
         {
+            _game.CheckAndAddHighScore(_game.score);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
