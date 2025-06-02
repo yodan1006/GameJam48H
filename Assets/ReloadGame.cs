@@ -10,7 +10,7 @@ public class ReloadGame : MonoBehaviour
     {
         if (context.performed)
         {
-            value._speed = valueBaseSpeed;
+            value.timeToMove = valueBaseSpeed;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
         }
     }
