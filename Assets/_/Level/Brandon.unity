@@ -511,6 +511,9 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 5600519010990664434, guid: 6258a46efa62c884fb6c994b84cff4d8, type: 3}
   _textMesh: {fileID: 1399773636}
   _spawnTimer: 0.5
+  _addSpeedModifier: 5
+  _TimeToUpDifficulty: 2
+  _script: {fileID: 719402040282821954, guid: 6258a46efa62c884fb6c994b84cff4d8, type: 3}
   score: 0
 --- !u!4 &1603555562
 Transform:
@@ -631,6 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabShoot: {fileID: 8083071999555669798, guid: a94e9e68253364d40bf9a6a96ef8aa0c, type: 3}
+  _game: {fileID: 1603555561}
 --- !u!114 &1629619601
 MonoBehaviour:
   m_ObjectHideFlags: 0

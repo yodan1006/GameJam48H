@@ -11,7 +11,7 @@ public class Défilement : MonoBehaviour
         Civil,
         Enemy
     };
-    [SerializeField] float _speed;
+    public float _speed;
     [SerializeField] private int addScore;
     etat _etat;
     private MaangeGame _game;
