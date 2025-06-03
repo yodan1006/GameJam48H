@@ -11,12 +11,15 @@ public class Shoot : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _collider;
     [SerializeField] private int _pointToKillEnemy;
+    [SerializeField] private GameObject _player;
+    [SerializeField] private AudioSource _audioSlash;
 
 
     public void Shooter(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
+            _audioSlash.Play();
             KillThen();
         }
 
