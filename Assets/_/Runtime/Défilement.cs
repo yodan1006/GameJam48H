@@ -9,12 +9,9 @@ public class Défilement : MonoBehaviour
         Civil,
         Enemy
     }
-    private Transform _target;
-    private float _speed;
     public Etat _etat;
     private MaangeGame _game;
     private GameObject _visuel;
-    private bool _retour = false;
 
     public Vector2 dir = Vector2.left;
     public float distance = 1f;
@@ -32,8 +29,6 @@ public class Défilement : MonoBehaviour
     public void Init(MaangeGame game)
     {
         _game = game;
-
-        // Choisir aléatoirement le type
         _etat = (Etat)Random.Range(0, 2);
 
         if (_etat == Etat.Enemy)
@@ -42,14 +37,7 @@ public class Défilement : MonoBehaviour
         }
         DefineVisuel();
     }
-    private void OnBecameInvisible()
-    {
-        if (_retour)
-        {
-            Destroy(gameObject);
-        }
-    }
-
+    
     private IEnumerator Deplacement()
     {
         while (true)
@@ -95,7 +83,8 @@ public class Défilement : MonoBehaviour
 
         if (_etat == Etat.Enemy)
         {
-            _game.AddScore(addScoreToKill);
+            if (other.gameObject.layer == LayerMask.NameToLayer("bullet"))
+                _game.AddScore(addScoreToKill);
         }
         Destroy(gameObject);
     }

@@ -14,19 +14,13 @@ public class Shoot : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private AudioSource _audioSlash;
 
-
     public void Shooter(InputAction.CallbackContext context)
     {
+        // Seulement quand la touche est pressée (pas maintenue)
         if (context.performed)
         {
             _audioSlash.Play();
             KillThen();
-        }
-
-        if (context.canceled)
-        {
-            _animator.SetBool("Attaque", false);
-            _collider.enabled = false;
         }
     }
 
@@ -41,5 +35,14 @@ public class Shoot : MonoBehaviour
     {
         _animator.SetBool("Attaque", true);
         _collider.enabled = true;
+        
+        // Désactiver le collider après un court délai
+        Invoke(nameof(DisableCollider), 0.2f);
+    }
+    
+    private void DisableCollider()
+    {
+        _animator.SetBool("Attaque", false);
+        _collider.enabled = false;
     }
 }

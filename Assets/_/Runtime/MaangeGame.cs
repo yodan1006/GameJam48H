@@ -16,9 +16,6 @@ public class MaangeGame : MonoBehaviour
     private float timer;
 
     public int score;
-    
-    private float _timer;
-    private float _timerToDifficulty;
 
     private const int MaxHighScores = 5;
 
