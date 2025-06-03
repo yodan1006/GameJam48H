@@ -1,78 +1,95 @@
-using System;
-using UnityEditor.Experimental.GraphView;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
 
 public class Défilement : MonoBehaviour
 {
-    public enum etat
+    public enum Etat
     {
         Civil,
         Enemy
-    };
-    public float _speed;
-    [SerializeField] private int addScore;
-    etat _etat;
+    }
+    private Transform _target;
+    private float _speed;
+    private Etat _etat;
     private MaangeGame _game;
     private SpriteRenderer _spriteRenderer;
-    private string _layer;
-    [SerializeField] SpriteRenderer civil;
-    [SerializeField] private SpriteRenderer enemy;
 
+    private bool _pretABouger = false;
+    private bool _enPause = false;
+    private bool _retour = false;
 
-    private void Awake()
-    {
-        _game = FindObjectOfType<MaangeGame>();
-        int random = Random.Range(0, 2);
-        _etat = (etat)random;
-    }
+    public Vector2 dir = Vector2.left;
+    public float distance = 1f;
+    public float timeToMove = 1f;
+
+    [SerializeField] private float timeToPause = 1f;
+    [SerializeField] private int addScore = 10;
 
     private void Start()
     {
-        if (_etat == etat.Enemy)
-        {
-            int layerIndex = LayerMask.NameToLayer("enemy");
-            gameObject.layer = layerIndex;
-            _layer = LayerMask.LayerToName(layerIndex);
-        }
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        StartCoroutine(Deplacement());
     }
 
-    private void Update()
+    public void Init(MaangeGame game)
     {
-        transform.Translate(Vector2.left * _speed * Time.deltaTime);
+        _game = game;
+
+        // Choisir aléatoirement le type
+        _etat = (Etat)Random.Range(0, 2);
+
+        if (_etat == Etat.Enemy)
+        {
+            gameObject.layer = LayerMask.NameToLayer("enemy");
+        }
         DefineSprite();
     }
-
-    public void DefineSprite()
+    private void OnBecameInvisible()
     {
-        switch (_etat)
+        if (_retour)
         {
-           //case etat.Civil: _spriteRenderer = civil; break;
-           //case etat.Enemy: _spriteRenderer = enemy; break;
-              case etat.Civil: _spriteRenderer.color = Color.blue; break;
-              case etat.Enemy: _spriteRenderer.color = Color.cyan; break;
+            Destroy(gameObject);
         }
     }
-    
+
+    private IEnumerator Deplacement()
+    {
+        while (true)
+        {
+            transform.position += (Vector3)dir.normalized * distance;
+            yield return new WaitForSeconds(timeToMove);
+        }
+    }
+
+    private void DefineSprite()
+    {
+        if (_spriteRenderer == null)
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        switch (_etat)
+        {
+            case Etat.Civil:
+                _spriteRenderer.color = Color.blue;
+                break;
+            case Etat.Enemy:
+                _spriteRenderer.color = Color.red;
+                break;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject);
-        if (_etat == etat.Civil)
+        if (_etat == Etat.Civil)
         {
             _game.CheckAndAddHighScore(_game.score);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-
-        if (_etat == etat.Enemy && other.CompareTag("bullet"))
+        else if (_etat == Etat.Enemy && other.CompareTag("bullet"))
         {
-            AddScore(addScore);
+            _game.AddScore(addScore);
         }
-    }
 
-    private void AddScore(int points)
-    {
-        _game.score += points;
+        Destroy(gameObject);
     }
 }

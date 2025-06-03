@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4773489850984480909}
   - component: {fileID: 9201661573054875468}
-  - component: {fileID: 719402040282821954}
   - component: {fileID: 8977847558353118768}
+  - component: {fileID: 719402040282821954}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5600519010990664434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.01, y: 1.14, z: 0}
+  m_LocalPosition: {x: 8.4, y: 1.14, z: 0}
   m_LocalScale: {x: 1, y: 2.3125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -89,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &719402040282821954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5600519010990664434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a5de981dac68cf4c87e4e7ea544ee0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 10
-  addScore: 100
 --- !u!61 &8977847558353118768
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,3 +135,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &719402040282821954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600519010990664434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5de981dac68cf4c87e4e7ea544ee0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: {x: -1, y: 0}
+  distance: 1
+  timeToMove: 0.7
+  timeToMoveStart: 0.7
+  timeToPause: 1.2
+  addScore: 100
