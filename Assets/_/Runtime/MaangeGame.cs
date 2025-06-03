@@ -11,8 +11,6 @@ public class MaangeGame : MonoBehaviour
     [SerializeField] private float _spawnTimer = 100f;
     [FormerlySerializedAs("_addSpeedModifier")] [SerializeField] private float _SpeedSpawn = 0.5f;
     [SerializeField] private float _timeToUpDifficulty = 10f;
-    [SerializeField] private float _initialSpeed = 2f;
-    [SerializeField] private float _upSpeedModifier = 0.5f;
     [SerializeField] private float _speedMove = 0.2f;
     [SerializeField] private float _speedMoveInitial;
     private float timer;
