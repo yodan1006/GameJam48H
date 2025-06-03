@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 5600519010990664434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 0.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 9, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -123,7 +123,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 5.305487}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -133,7 +133,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.391603, y: 11.610974}
   m_EdgeRadius: 0
 --- !u!114 &719402040282821954
 MonoBehaviour:
@@ -147,9 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5de981dac68cf4c87e4e7ea544ee0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _etat: 0
   dir: {x: -1, y: 0}
   distance: 1
-  timeToMove: 0.59999996
+  timeToMove: 0.7
+  addScoreToKill: 100
   _prefabCivil: {fileID: 923784338630253230, guid: f13d1875e41d91444b5996a236c53981, type: 3}
   _prefabEnemy: {fileID: 7087621697302515592, guid: 0547f49393b7dc640a02257ce62aaf5a, type: 3}
-  addScore: 100

@@ -11,7 +11,7 @@ public class Défilement : MonoBehaviour
     }
     private Transform _target;
     private float _speed;
-    private Etat _etat;
+    public Etat _etat;
     private MaangeGame _game;
     private GameObject _visuel;
     private bool _retour = false;
@@ -20,9 +20,9 @@ public class Défilement : MonoBehaviour
     public float distance = 1f;
     public float timeToMove = 1f;
 
+    [SerializeField] private int addScoreToKill = 100;
     [SerializeField] private GameObject _prefabCivil;
     [SerializeField] private GameObject _prefabEnemy;
-    [SerializeField] private int addScore = 10;
 
     private void Start()
     {
@@ -88,11 +88,11 @@ public class Défilement : MonoBehaviour
             _game.CheckAndAddHighScore(_game.score);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else if (_etat == Etat.Enemy && other.CompareTag("bullet"))
-        {
-            _game.AddScore(addScore);
-        }
 
+        if (_etat == Etat.Enemy)
+        {
+            _game.AddScore(addScoreToKill);
+        }
         Destroy(gameObject);
     }
 }
