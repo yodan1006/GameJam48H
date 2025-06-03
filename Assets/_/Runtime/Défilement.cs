@@ -32,9 +32,8 @@ public class Défilement : MonoBehaviour
         StartCoroutine(Deplacement());
     }
 
-    public void Init(Transform target, MaangeGame game)
+    public void Init(MaangeGame game)
     {
-        _target = target;
         _game = game;
 
         // Choisir aléatoirement le type

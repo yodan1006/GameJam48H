@@ -8,13 +8,13 @@ public class MaangeGame : MonoBehaviour
     [SerializeField] private Défilement defilement;
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private TextMeshProUGUI _textMesh;
-    [SerializeField] private Transform _target;
     [SerializeField] private float _spawnTimer = 100f;
     [FormerlySerializedAs("_addSpeedModifier")] [SerializeField] private float _SpeedSpawn = 0.5f;
     [SerializeField] private float _timeToUpDifficulty = 10f;
     [SerializeField] private float _initialSpeed = 2f;
     [SerializeField] private float _upSpeedModifier = 0.5f;
     [SerializeField] private float _speedMove = 0.2f;
+    [SerializeField] private float _speedMoveInitial;
     private float timer;
 
     public int score;
@@ -26,6 +26,7 @@ public class MaangeGame : MonoBehaviour
 
     private void Start()
     {
+        defilement.timeToMove = _speedMoveInitial;
         StartCoroutine(Spawnenemy());
     }
 
@@ -37,7 +38,7 @@ public class MaangeGame : MonoBehaviour
         {
             timer = 0;
             _spawnTimer -= _SpeedSpawn;
-            defilement.timeToMove -= _speedMove;
+            defilement.timeToMove = Mathf.Max(0.05f, defilement.timeToMove - _speedMove);
         }
     }
 
@@ -48,7 +49,7 @@ public class MaangeGame : MonoBehaviour
             GameObject enemy =Instantiate(_enemyPrefab);
             Défilement defilScript = enemy.GetComponent<Défilement>();
             
-            defilScript.Init(target: _target,game: this);
+            defilScript.Init(game: this);
             yield return new WaitForSeconds(_spawnTimer);
         }
     }

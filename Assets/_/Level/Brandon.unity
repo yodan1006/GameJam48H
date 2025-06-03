@@ -511,13 +511,13 @@ MonoBehaviour:
   defilement: {fileID: 719402040282821954, guid: 6258a46efa62c884fb6c994b84cff4d8, type: 3}
   _enemyPrefab: {fileID: 5600519010990664434, guid: 6258a46efa62c884fb6c994b84cff4d8, type: 3}
   _textMesh: {fileID: 1399773636}
-  _target: {fileID: 1705945738}
   _spawnTimer: 3
-  _SpeedSpawn: 0.2
+  _SpeedSpawn: 0.25
   _timeToUpDifficulty: 10
   _initialSpeed: 20
   _upSpeedModifier: 0.2
   _speedMove: 0.1
+  _speedMoveInitial: 0.7
   score: 0
 --- !u!4 &1603555562
 Transform:
@@ -789,37 +789,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1705945737
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1705945738}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1705945738
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705945737}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.999, y: 0.284, z: -0.020315489}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741048676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,4 +980,3 @@ SceneRoots:
   - {fileID: 1603555562}
   - {fileID: 2047281645}
   - {fileID: 1741048679}
-  - {fileID: 1705945738}
