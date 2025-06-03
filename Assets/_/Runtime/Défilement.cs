@@ -85,8 +85,12 @@ public class Défilement : MonoBehaviour
     {
         if (_etat == Etat.Civil)
         {
-            _game.CheckAndAddHighScore(_game.score);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (other.gameObject.layer == LayerMask.NameToLayer("DespawnZone")) _game.AddScore(addScoreToKill);
+            if (other.gameObject.layer == LayerMask.NameToLayer("bullet"))
+            {
+                _game.CheckAndAddHighScore(_game.score);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
 
         if (_etat == Etat.Enemy)
