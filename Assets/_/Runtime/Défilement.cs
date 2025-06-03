@@ -13,22 +13,19 @@ public class Défilement : MonoBehaviour
     private float _speed;
     private Etat _etat;
     private MaangeGame _game;
-    private SpriteRenderer _spriteRenderer;
-
-    private bool _pretABouger = false;
-    private bool _enPause = false;
+    private GameObject _visuel;
     private bool _retour = false;
 
     public Vector2 dir = Vector2.left;
     public float distance = 1f;
     public float timeToMove = 1f;
 
-    [SerializeField] private float timeToPause = 1f;
+    [SerializeField] private GameObject _prefabCivil;
+    [SerializeField] private GameObject _prefabEnemy;
     [SerializeField] private int addScore = 10;
 
     private void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(Deplacement());
     }
 
@@ -43,7 +40,7 @@ public class Défilement : MonoBehaviour
         {
             gameObject.layer = LayerMask.NameToLayer("enemy");
         }
-        DefineSprite();
+        DefineVisuel();
     }
     private void OnBecameInvisible()
     {
@@ -62,19 +59,25 @@ public class Défilement : MonoBehaviour
         }
     }
 
-    private void DefineSprite()
+    private void DefineVisuel()
     {
-        if (_spriteRenderer == null)
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+        if (_visuel != null) Destroy(_visuel);
 
+        GameObject prefabToUse = null;
         switch (_etat)
         {
             case Etat.Civil:
-                _spriteRenderer.color = Color.blue;
+                prefabToUse = _prefabCivil;
                 break;
             case Etat.Enemy:
-                _spriteRenderer.color = Color.red;
+                prefabToUse = _prefabEnemy;
                 break;
+        }
+
+        if (prefabToUse != null)
+        {
+            _visuel = Instantiate(prefabToUse, transform);
+            _visuel.transform.localPosition = Vector3.zero;
         }
     }
 
