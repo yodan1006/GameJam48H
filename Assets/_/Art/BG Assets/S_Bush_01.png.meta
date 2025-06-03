@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      S_Bush_01_0: -775669379294622622
+      S_Bush_01_1: 2155366912761012213
+      S_Bush_01_10: 7661954248209735848
+      S_Bush_01_11: -2064274932784359414
+      S_Bush_01_2: -7474295287835744293
+      S_Bush_01_3: -4669003661949069700
+      S_Bush_01_4: -1862227728095208495
+      S_Bush_01_5: 429883547642101698
+      S_Bush_01_6: 3670473501933019910
+      S_Bush_01_7: -4209645074349834122
+      S_Bush_01_8: -5727923691046054808
+      S_Bush_01_9: 2656272265479096899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
