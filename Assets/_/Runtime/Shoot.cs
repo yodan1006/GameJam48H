@@ -10,6 +10,8 @@ public class Shoot : MonoBehaviour
     [SerializeField] private MaangeGame _game;
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _collider;
+    [SerializeField] private int _pointToKillEnemy;
+
 
     public void Shooter(InputAction.CallbackContext context)
     {
@@ -27,6 +29,7 @@ public class Shoot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //if (other.gameObject.layer == LayerMask.NameToLayer("Enemy")) _game.AddScore(_pointToKillEnemy);
         _game.CheckAndAddHighScore(_game.score);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
